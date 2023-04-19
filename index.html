@@ -20,6 +20,30 @@
                     return 'scissors'
                 }
             }
+
+            let user = prompt('Choose: ')
+            user = user.toLowerCase()
+            function play(playerChoice, computerChoice) {
+                if ((playerChoice === 'rock') && (computerChoice === 'rock')) {
+                    console.log('This round is a tie!');
+                } else if ((playerChoice === 'rock') && (computerChoice === 'paper')) {
+                    console.log('Paper covers rock! Computer wins!');
+                } else if ((playerChoice === 'rock') && (computerChoice === 'scissors')) {
+                    console.log('Rock smashes scissors! You win!!');
+                } else if ((playerChoice === 'paper') && (computerChoice === 'rock')) {
+                    conosle.log('Paper covers rock! You Win!!')
+                } else if ((playerChoice === 'paper') && (computerChoice === 'paper')) {
+                    console.log('This round is tie!')
+                } else if ((playerChoice === 'paper') && (computerChoice === 'scissors')) {
+                    console.log('Scissors cuts paper! Computer wins!!')
+                } else if ((playerChoice === 'scissors') && (computerChoice === 'rock')) {
+                    console.log('Rock smashes scissors! Computer wins!!')
+                } else if ((playerChoice === 'scissors') && (computerChoice === 'paper')) {
+                    console.log('Scissors cuts paper! You win!!')
+                } else if ((playerChoice === 'scissors') && (computerChoice === 'scissors')) {
+                    console.log('This round is a tie!!')
+                }
+            }
         </script>
     </body>
 </html>
