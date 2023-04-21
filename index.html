@@ -7,6 +7,9 @@
 
     <body>
         <script>
+            var compScore = 0,
+            userScore = 0;
+
             function getComputerChoice() {
                 // Math.random chooses random number from 0 to 1
                 // * 3 to get it to max 3 and add 1 so it doesnt choose 0
@@ -23,23 +26,29 @@
 
             function play(playerChoice, computerChoice) {
                 if ((playerChoice === 'rock') && (computerChoice === 'rock')) {
-                    return 'This round is a tie!';
+                    return `This round is a tie! \n User: ${userScore} \n Computer: ${compScore}`;
                 } else if ((playerChoice === 'rock') && (computerChoice === 'paper')) {
-                    return 'Paper covers rock! Computer wins!';
+                    compScore += 1
+                    return `Paper covers rock! Computer wins! \n User: ${userScore} \n Computer: ${compScore}`;
                 } else if ((playerChoice === 'rock') && (computerChoice === 'scissors')) {
-                    return 'Rock smashes scissors! You win!!';
+                    userScore += 1
+                    return `Rock smashes scissors! You win!! \n User: ${userScore} \n Computer: ${compScore}`;
                 } else if ((playerChoice === 'paper') && (computerChoice === 'rock')) {
-                    return 'Paper covers rock! You Win!!'
+                    userScore += 1
+                    return `Paper covers rock! You Win!! \n User: ${userScore} \n Computer: ${compScore}`
                 } else if ((playerChoice === 'paper') && (computerChoice === 'paper')) {
-                    return 'This round is tie!'
+                    return `This round is tie! \n User: ${userScore} \n Computer: ${compScore}`
                 } else if ((playerChoice === 'paper') && (computerChoice === 'scissors')) {
-                    return 'Scissors cuts paper! Computer wins!!'
+                    compScore += 1
+                    return `Scissors cuts paper! Computer wins!! \n User: ${userScore} \n Computer: ${compScore}`
                 } else if ((playerChoice === 'scissors') && (computerChoice === 'rock')) {
-                    return 'Rock smashes scissors! Computer wins!!'
+                    compScore += 1
+                    return `Rock smashes scissors! Computer wins!! \n User: ${userScore} \n Computer: ${compScore}`
                 } else if ((playerChoice === 'scissors') && (computerChoice === 'paper')) {
-                    return 'Scissors cuts paper! You win!!'
+                    userScore += 1
+                    return `Scissors cuts paper! You win!! \n User: ${userScore} \n Computer: ${compScore}`
                 } else if ((playerChoice === 'scissors') && (computerChoice === 'scissors')) {
-                    return 'This round is a tie!!'
+                    return `This round is a tie!! \n User: ${userScore} \n Computer: ${compScore}`
                 }
             }
             
@@ -51,6 +60,14 @@
                     let compChoice = getComputerChoice()
                     
                     console.log(play(user,compChoice))
+                }
+                
+                if (userScore > compScore) {
+                    console.log(`You got best of 5 with a score of ${userScore} \nYou win!`)
+                } else if (compScore > userScore) {
+                    console.log(`Computer got best of 5 with a score of ${compScore} \nYou lose! :(`)
+                } else {
+                    console.log(`You tied the game with a score of \nUser: ${userScore} \nComputer: ${compScore}`)
                 }
             }
 
