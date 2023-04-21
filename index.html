@@ -21,8 +21,7 @@
                 }
             }
 
-            let user = prompt('Choose: ')
-            user = user.toLowerCase()
+            
             function play(playerChoice, computerChoice) {
                 if ((playerChoice === 'rock') && (computerChoice === 'rock')) {
                     return 'This round is a tie!';
@@ -44,6 +43,19 @@
                     return 'This round is a tie!!'
                 }
             }
+            let user
+            function game() {
+                for (i = 1; i <= 5; i++) {
+                    user = prompt('Choose: ')
+                    user = user.toLowerCase()
+                    let compChoice = getComputerChoice()
+                    
+                    console.log(play(user,compChoice))
+                    
+                }
+            }
+
+            game()
         </script>
     </body>
 </html>
