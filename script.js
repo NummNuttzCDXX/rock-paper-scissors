@@ -71,11 +71,13 @@ btns.forEach((btn) => {
         results.textContent = play(btn.className, getComputerChoice())
         let gameWin = h2;
         if (userScore === 5) {
-            gameWin.textContent = `\nYou Won the game!! \n You: ${userScore} \n Computer: ${compScore}`;
-            results.appendChild(gameWin);
+            results.setAttribute('id', 'game-win')
+            results.style.color = 'green'
+            results.textContent = `\nYou Won the game!! \n You: ${userScore} \n Computer: ${compScore}`;
         } else if (compScore === 5) {
-            gameWin.textContent = `\nYou Lost the game!! \n You: ${userScore} \n Computer: ${compScore}`;
-            results.appendChild(gameWin);
+            results.setAttribute('id', 'game-win')
+            results.style.color = 'red'
+            results.textContent = `\nYou Lost the game!! \n You: ${userScore} \n Computer: ${compScore}`;
         };
     });
 });
