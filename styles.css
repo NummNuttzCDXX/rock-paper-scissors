@@ -3,3 +3,16 @@ body {
     flex-direction: column;
     align-items: center;
 }
+
+button {
+    font-size:larger ;
+}
+
+.results {
+    font-size: 20px;
+}
+
+/* Will change size once score gets to 5 */
+#game-win {
+    font-size: xx-large;
+}
