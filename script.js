@@ -61,3 +61,11 @@ function game() {
         console.log(`You tied the game with a score of \nUser: ${userScore} \nComputer: ${compScore}`)
     }
 }
+
+const btns = document.querySelectorAll('button') // Returns a node list of all buttons
+// .forEach iterates through list of buttons and for every button, listens for clicks, then runs play() and logs it
+btns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        console.log(play(btn.className, getComputerChoice()))
+    })
+})
