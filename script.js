@@ -62,10 +62,13 @@ function game() {
     }
 }
 
-const btns = document.querySelectorAll('button') // Returns a node list of all buttons
+const results = document.querySelector('.results');
+const btns = document.querySelectorAll('button'); // Returns a node list of all buttons
 // .forEach iterates through list of buttons and for every button, listens for clicks, then runs play() and logs it
 btns.forEach((btn) => {
     btn.addEventListener('click', () => {
         console.log(play(btn.className, getComputerChoice()))
-    })
-})
+        results.textContent = play(btn.className, getComputerChoice())
+        
+    });
+});
