@@ -63,12 +63,19 @@ function game() {
 }
 
 const results = document.querySelector('.results');
+const h2 = document.createElement('h2');
 const btns = document.querySelectorAll('button'); // Returns a node list of all buttons
 // .forEach iterates through list of buttons and for every button, listens for clicks, then runs play() and logs it
 btns.forEach((btn) => {
     btn.addEventListener('click', () => {
-        console.log(play(btn.className, getComputerChoice()))
         results.textContent = play(btn.className, getComputerChoice())
-        
+        let gameWin = h2;
+        if (userScore === 5) {
+            gameWin.textContent = `\nYou Won the game!! \n You: ${userScore} \n Computer: ${compScore}`;
+            results.appendChild(gameWin);
+        } else if (compScore === 5) {
+            gameWin.textContent = `\nYou Lost the game!! \n You: ${userScore} \n Computer: ${compScore}`;
+            results.appendChild(gameWin);
+        };
     });
 });
