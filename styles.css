@@ -9,12 +9,13 @@ p {
     font-size: 20px;
 }
 
-button {
+#buttons button {
     background-color:dimgray;
 }
 
 .results {
     font-size: 20px;
+    text-align: center;
 }
 
 .score {
@@ -29,4 +30,9 @@ button {
 /* Will change size once score gets to 5 */
 #game-win {
     font-size: xx-large;
+}
+
+#new-game {
+    background-color: white;
+    font-size: 15px;
 }

@@ -43,44 +43,51 @@ function play(playerChoice, computerChoice) {
     }
 }
 
-let user
-function game() {
-    for (i = 1; i <= 5; i++) {
-        user = prompt('Choose: ')
-        user = user.toLowerCase()
-        let compChoice = getComputerChoice()
+// New Game: Reset scoreboard and text content
+function reset() {
+    compScore = 0;
+    userScore = 0;
+    
+    results.textContent = '';
+    score.textContent = '';
+    results.removeAttribute('id', 'game-win');
+    results.style.color = 'black'
 
-        console.log(play(user, compChoice))
-    }
-
-    if (userScore > compScore) {
-        console.log(`You got best of 5 with a score of ${userScore} \nYou win!`)
-    } else if (compScore > userScore) {
-        console.log(`Computer got best of 5 with a score of ${compScore} \nYou lose! :(`)
-    } else {
-        console.log(`You tied the game with a score of \nUser: ${userScore} \nComputer: ${compScore}`)
-    }
+    body.removeChild(newGameBut)
 }
 
+const body = document.querySelector('body');
 const results = document.querySelector('.results');
 const h2 = document.createElement('h2');
-const score = document.querySelector('.score')
-const btns = document.querySelectorAll('button'); // Returns a node list of all buttons
+const score = document.querySelector('.score');
+const addBut = document.createElement('button');
+const btns = document.querySelectorAll('#buttons button'); // Returns a node list of all buttons
+let newGameBut = addBut;
 // .forEach iterates through list of buttons and for every button, listens for clicks, then runs play() and logs it
 btns.forEach((btn) => {
     btn.addEventListener('click', () => {
         results.textContent = play(btn.className, getComputerChoice())
         let gameWin = h2;
+        
+        newGameBut.textContent = 'Play Again?';
+        newGameBut.setAttribute('id', 'new-game');
         if (userScore === 5) {
             results.setAttribute('id', 'game-win')
             results.style.color = 'green'
             results.textContent = "You Won the game!!";
             score.textContent = `Score: \nYou: ${userScore} \nComputer: ${compScore}`;
+
+            body.appendChild(newGameBut);
         } else if (compScore === 5) {
             results.setAttribute('id', 'game-win')
             results.style.color = 'red'
             results.textContent = 'HA HA \n You lost to a computer!! :P';
             score.textContent = `Score: \nYou: ${userScore} \nComputer: ${compScore}`;
+
+            body.appendChild(newGameBut);
         };
     });
 });
+
+// Butten resets game
+newGameBut.addEventListener('click', reset);
