@@ -65,7 +65,7 @@ const btns = document.querySelectorAll('#buttons button'); // Returns a node lis
 let newGameBut = addBut;
 // .forEach iterates through list of buttons and for every button, listens for clicks, then runs play() and logs it
 btns.forEach((btn) => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', function game() {
         results.textContent = play(btn.className, getComputerChoice())
         let gameWin = h2;
         
