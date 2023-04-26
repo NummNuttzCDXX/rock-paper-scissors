@@ -64,6 +64,7 @@ function game() {
 
 const results = document.querySelector('.results');
 const h2 = document.createElement('h2');
+const score = document.querySelector('.score')
 const btns = document.querySelectorAll('button'); // Returns a node list of all buttons
 // .forEach iterates through list of buttons and for every button, listens for clicks, then runs play() and logs it
 btns.forEach((btn) => {
@@ -73,11 +74,13 @@ btns.forEach((btn) => {
         if (userScore === 5) {
             results.setAttribute('id', 'game-win')
             results.style.color = 'green'
-            results.textContent = `\nYou Won the game!! \n You: ${userScore} \n Computer: ${compScore}`;
+            results.textContent = "You Won the game!!";
+            score.textContent = `Score: \nYou: ${userScore} \nComputer: ${compScore}`;
         } else if (compScore === 5) {
             results.setAttribute('id', 'game-win')
             results.style.color = 'red'
-            results.textContent = `\nYou Lost the game!! \n You: ${userScore} \n Computer: ${compScore}`;
+            results.textContent = 'HA HA \n You lost to a computer!! :P';
+            score.textContent = `Score: \nYou: ${userScore} \nComputer: ${compScore}`;
         };
     });
 });
