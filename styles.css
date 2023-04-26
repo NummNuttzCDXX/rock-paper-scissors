@@ -4,12 +4,26 @@ body {
     align-items: center;
 }
 
+p {
+    text-align: center;
+    font-size: 20px;
+}
+
 button {
-    font-size:larger ;
+    background-color:dimgray;
 }
 
 .results {
     font-size: 20px;
+}
+
+.score {
+    font-size: 30px;
+}
+
+.results,
+.score {
+    white-space: pre-wrap; /* This line makes \n from JS work in the HTML file! */
 }
 
 /* Will change size once score gets to 5 */
