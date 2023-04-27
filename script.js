@@ -17,29 +17,29 @@ function getComputerChoice() {
 
 function play(playerChoice, computerChoice) {
     if ((playerChoice === 'rock') && (computerChoice === 'rock')) {
-        return `This round is a tie! \n User: ${userScore} \n Computer: ${compScore}`;
+        return `This round is a tie!`;
     } else if ((playerChoice === 'rock') && (computerChoice === 'paper')) {
         compScore += 1
-        return `Paper covers rock! Computer wins! \n User: ${userScore} \n Computer: ${compScore}`;
+        return `Paper covers rock! Computer wins!`;
     } else if ((playerChoice === 'rock') && (computerChoice === 'scissors')) {
         userScore += 1
-        return `Rock smashes scissors! You win!! \n User: ${userScore} \n Computer: ${compScore}`;
+        return `Rock smashes scissors! You win!!`;
     } else if ((playerChoice === 'paper') && (computerChoice === 'rock')) {
         userScore += 1
-        return `Paper covers rock! You Win!! \n User: ${userScore} \n Computer: ${compScore}`
+        return `Paper covers rock! You Win!!`
     } else if ((playerChoice === 'paper') && (computerChoice === 'paper')) {
-        return `This round is tie! \n User: ${userScore} \n Computer: ${compScore}`
+        return `This round is tie!`
     } else if ((playerChoice === 'paper') && (computerChoice === 'scissors')) {
         compScore += 1
-        return `Scissors cuts paper! Computer wins!! \n User: ${userScore} \n Computer: ${compScore}`
+        return `Scissors cuts paper! Computer wins!!`
     } else if ((playerChoice === 'scissors') && (computerChoice === 'rock')) {
         compScore += 1
-        return `Rock smashes scissors! Computer wins!! \n User: ${userScore} \n Computer: ${compScore}`
+        return `Rock smashes scissors! Computer wins!!`
     } else if ((playerChoice === 'scissors') && (computerChoice === 'paper')) {
         userScore += 1
-        return `Scissors cuts paper! You win!! \n User: ${userScore} \n Computer: ${compScore}`
+        return `Scissors cuts paper! You win!!`
     } else if ((playerChoice === 'scissors') && (computerChoice === 'scissors')) {
-        return `This round is a tie!! \n User: ${userScore} \n Computer: ${compScore}`
+        return `This round is a tie!!`
     }
 }
 
@@ -51,7 +51,7 @@ function reset() {
     results.textContent = '';
     score.textContent = '';
     results.removeAttribute('id', 'game-win');
-    results.style.color = 'black'
+    results.style.color = 'white'
 
     body.removeChild(newGameBut)
 }
@@ -67,27 +67,25 @@ let newGameBut = addBut;
 btns.forEach((btn) => {
     btn.addEventListener('click', function game() {
         results.textContent = play(btn.className, getComputerChoice())
+        // Stops updating score once someone reaches 5
+        if ((userScore < 6) && (compScore < 6)) score.textContent = `Score: \nYou: ${userScore} \nComputer: ${compScore}`;;
         let gameWin = h2;
         
         newGameBut.textContent = 'Play Again?';
         newGameBut.setAttribute('id', 'new-game');
-        if (userScore === 5) {
+        if (userScore >= 5) {
             results.setAttribute('id', 'game-win')
             results.style.color = 'green'
             results.textContent = "You Won the game!!";
-            score.textContent = `Score: \nYou: ${userScore} \nComputer: ${compScore}`;
-
             body.appendChild(newGameBut);
-        } else if (compScore === 5) {
+        } else if (compScore >= 5) {
             results.setAttribute('id', 'game-win')
             results.style.color = 'red'
             results.textContent = 'HA HA \n You lost to a computer!! :P';
-            score.textContent = `Score: \nYou: ${userScore} \nComputer: ${compScore}`;
-
             body.appendChild(newGameBut);
-        };
+        }; 
     });
 });
 
-// Butten resets game
+// Button resets game
 newGameBut.addEventListener('click', reset);
