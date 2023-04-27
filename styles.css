@@ -24,7 +24,7 @@ p {
 }
 
 .score {
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .results,
@@ -38,8 +38,16 @@ p {
 }
 
 #new-game {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 12px;
     background-color: white;
     font-size: 15px;
+}
+
+#new-game:hover {
+    color: white;
+    background-color: rgb(34, 34, 34);
 }
 
 .footer {
