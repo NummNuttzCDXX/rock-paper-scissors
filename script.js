@@ -74,11 +74,13 @@ btns.forEach((btn) => {
         newGameBut.textContent = 'Play Again?';
         newGameBut.setAttribute('id', 'new-game');
         if (userScore >= 5) {
+            userScore++
             results.setAttribute('id', 'game-win')
             results.style.color = 'green'
             results.textContent = "You Won the game!!";
             body.appendChild(newGameBut);
         } else if (compScore >= 5) {
+            compScore++
             results.setAttribute('id', 'game-win')
             results.style.color = 'red'
             results.textContent = 'HA HA \n You lost to a computer!! :P';
